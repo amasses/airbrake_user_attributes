@@ -16,7 +16,7 @@ module Airbrake
 
       # Removes auth-related fields
       attributes = user.attributes.reject do |k, v|
-        /password|token|login|sign_in|per_page|_at$/ =~ k
+        /password|token|login|sign_in|per_page|_at|passphrase|_key$/ =~ k
       end
       # Try to include a URL for the user, if possible.
       if url_method = [:user_url, :admin_user_url].detect {|m| controller.respond_to?(m) }
